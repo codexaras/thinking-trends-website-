@@ -405,16 +405,8 @@ section {
   gap: 24px;
 }
 
-.nav-links {
-  order: 1;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  list-style: none;
-}
-
 .nav-logo {
-  order: 2;
+  order: 0; /* Reset to left */
   display: flex;
   align-items: center;
   gap: 10px;
@@ -423,22 +415,22 @@ section {
 }
 
 .nav-logo img {
-  height: 62px;
-  width: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 0 4px rgba(255,210,0,0.2));
-}
-
-.nav-logo-text {
-  display: none; /* Keep it hidden as per original clean design */
+  height: 52px;
+  width: 52px; /* Square dimensions for perfect circle */
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--yellow);
+  filter: drop-shadow(0 0 8px rgba(255,210,0,0.3));
 }
 
 .nav-links {
+  order: 1;
   display: flex;
   align-items: center;
   gap: 6px;
   list-style: none;
-  margin-right: auto; /* Push everything else to the right */
+  margin-right: 0;
+  margin-left: auto; /* Push nav links and CTA to the right */
 }
 
 .nav-links a {
@@ -474,7 +466,7 @@ section {
 }
 
 .nav-cta-wrap {
-  order: 3;
+  order: 2;
   display: flex;
   gap: 12px;
   align-items: center;
@@ -578,14 +570,15 @@ section {
 /* Giant heading text — centered in hero */
 .hero-big-text {
   position: absolute;
-  top: 48%;
+  top: 46%; /* Slightly higher than dead center */
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: var(--font-heading);
   font-weight: 900;
-  font-size: clamp(3.5rem, 11vw, 13rem);
-  line-height: 0.9;
-  letter-spacing: -0.04em;
+  font-size: clamp(3rem, 11.5vw, 12.5rem);
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+  opacity: 0.95;
   color: var(--white);
   white-space: nowrap;
   z-index: 1;
@@ -744,7 +737,7 @@ section {
 
 /* 01 — Phone / Viral Reel — top center */
 .hf-phone {
-  top: 14%;
+  top: 18%;
   left: 50%;
   transform: translateX(-50%);
   width: 150px;
@@ -800,8 +793,8 @@ section {
 
 /* 02 — Dashboard — top right */
 .hf-dashboard {
-  top: 14%;
-  right: 3%;
+  top: 18%;
+  right: 6%;
   width: 210px;
   padding: 14px;
   animation-delay: 1s;
@@ -882,8 +875,8 @@ section {
 
 /* 04 — Creator Collab — right center */
 .hf-creator {
-  top: 42%;
-  right: 2%;
+  top: 45%;
+  right: 5%;
   width: 195px;
   padding: 12px;
   animation-delay: 1.5s;
@@ -936,8 +929,8 @@ section {
 
 /* 05 — Automation Chat — left side */
 .hf-chat {
-  top: 42%;
-  left: 2%;
+  top: 45%;
+  left: 5%;
   width: 185px;
   padding: 12px;
   animation-delay: 2s;
