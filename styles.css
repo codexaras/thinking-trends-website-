@@ -570,21 +570,68 @@ section {
 /* Giant heading text — centered in hero */
 .hero-big-text {
   position: absolute;
-  top: 46%; /* Slightly higher than dead center */
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: var(--font-heading);
   font-weight: 900;
-  font-size: clamp(3rem, 11.5vw, 12.5rem);
+  font-size: clamp(3rem, 10vw, 12rem);
   line-height: 0.85;
-  letter-spacing: -0.05em;
-  opacity: 0.95;
+  letter-spacing: -0.02em;
+  opacity: 1;
   color: var(--white);
   white-space: nowrap;
   z-index: 1;
   pointer-events: none;
   user-select: none;
-  animation: fadeInUp 1s 0.3s ease both;
+  animation: fadeInUpCenter 1s 0.3s ease both;
+}
+
+@keyframes fadeInUpCenter {
+  from {
+    opacity: 0;
+    transform: translate(-50%, calc(-50% + 30px));
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.hbt-t {
+  position: relative;
+  display: inline-block;
+}
+.hbt-t::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 110%;
+  height: 16px;
+  background: var(--yellow);
+  border-radius: 10px;
+  transform: rotate(-3deg);
+  z-index: -1;
+  box-shadow: 0 0 15px rgba(255,210,0,0.5);
+}
+
+.hbt-s {
+  position: relative;
+  display: inline-block;
+}
+.hbt-s::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 140%;
+  height: 140%;
+  border: 8px solid var(--yellow);
+  border-radius: 50%;
+  z-index: -1;
+  box-shadow: 0 0 20px rgba(255,210,0,0.4), inset 0 0 20px rgba(255,210,0,0.4);
 }
 
 /* Hero layout — left content bottom-left, counter bottom-right */
@@ -594,10 +641,10 @@ section {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding: 80px 5vw;
   flex: 1;
   min-height: 0;
+  width: 100%;
 }
 
 .hero-left {
@@ -647,23 +694,33 @@ section {
   box-shadow: var(--shadow-yellow);
 }
 
-.btn-hero-ghost {
+.btn-hero-underline {
   background: transparent;
   color: var(--white);
   font-weight: 600;
   font-size: 0.95rem;
-  padding: 15px 32px;
-  border-radius: 50px;
-  border: 2px solid rgba(255,255,255,0.25);
+  padding: 15px 10px;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
+  position: relative;
   transition: var(--transition);
 }
-.btn-hero-ghost:hover {
-  border-color: var(--yellow);
+.btn-hero-underline::after {
+  content: '';
+  position: absolute;
+  bottom: 8px;
+  left: 10px;
+  right: 10px;
+  height: 2px;
+  background: var(--yellow);
+  transition: var(--transition);
+}
+.btn-hero-underline:hover {
   color: var(--yellow);
-  transform: translateY(-3px);
+}
+.btn-hero-underline:hover::after {
+  bottom: 4px;
 }
 
 /* Bottom-right counter */
@@ -671,8 +728,11 @@ section {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 4px;
-  animation: fadeInUp 0.9s 0.7s ease both;
+  gap: 10px;
+}
+.hero-counter-top {
+  display: flex;
+  align-items: center;
 }
 .hero-counter-num {
   font-family: var(--font-heading);
@@ -685,18 +745,19 @@ section {
   color: var(--gray);
   margin: 0 6px;
 }
+.yellow-text { color: var(--yellow); }
 .hero-counter-total {
   font-size: 1.5rem;
   font-weight: 600;
   color: var(--gray);
 }
 .hero-counter-label {
-  font-size: 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 600;
   letter-spacing: 2px;
-  text-transform: uppercase;
   color: var(--gray);
   text-align: right;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 /* ─── FLOATING UI CARDS ─────────────────────────────────────── */
@@ -737,10 +798,11 @@ section {
 
 /* 01 — Phone / Viral Reel — top center */
 .hf-phone {
-  top: 18%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 150px;
+  top: 10vh;
+  right: 15vw;
+  left: auto;
+  transform: rotate(-10deg);
+  width: 240px;
   padding: 8px;
   animation-delay: 0s;
   border-radius: 20px;
@@ -793,9 +855,11 @@ section {
 
 /* 02 — Dashboard — top right */
 .hf-dashboard {
-  top: 18%;
-  right: 6%;
-  width: 210px;
+  top: 12vh;
+  left: 36vw;
+  right: auto;
+  transform: rotate(8deg);
+  width: 280px;
   padding: 14px;
   animation-delay: 1s;
 }
@@ -828,11 +892,12 @@ section {
 
 /* 03 — Strategy Brain — center slightly above middle */
 .hf-brain {
-  top: 55%;
+  top: auto;
+  bottom: 8vh;
   left: 50%;
   transform: translateX(-50%);
-  width: 110px;
-  height: 110px;
+  width: 160px;
+  height: 160px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -875,9 +940,11 @@ section {
 
 /* 04 — Creator Collab — right center */
 .hf-creator {
-  top: 45%;
-  right: 5%;
-  width: 195px;
+  top: auto;
+  bottom: 15vh;
+  right: 15vw;
+  transform: rotate(-12deg);
+  width: 260px;
   padding: 12px;
   animation-delay: 1.5s;
 }
@@ -929,9 +996,11 @@ section {
 
 /* 05 — Automation Chat — left side */
 .hf-chat {
-  top: 45%;
-  left: 5%;
-  width: 185px;
+  top: auto;
+  bottom: 15vh;
+  left: 28vw;
+  transform: rotate(12deg);
+  width: 250px;
   padding: 12px;
   animation-delay: 2s;
 }

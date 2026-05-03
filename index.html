@@ -42,7 +42,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=6" />
+  <link rel="stylesheet" href="styles.css?v=7" />
 </head>
 
 <body>
@@ -78,7 +78,7 @@
         <li class="nav-dot">·</li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <div class="nav-cta-wrap">
+      <div class="nav-cta-wrap" style="display: none;">
         <a href="#contact" class="btn btn-nav-cta">Book a call</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu">
@@ -191,31 +191,31 @@
         <div class="hf-chat-footer">24/7</div>
       </div>
 
-      <!-- Yellow ring decoration -->
-      <div class="hf-yellow-ring"></div>
-    </div>
+      </div>
 
     <!-- Giant headline background text -->
-    <div class="hero-big-text" aria-hidden="true">thinking trends</div>
+    <div class="hero-big-text" aria-hidden="true"><span class="hbt-t">t</span>hinking trend<span class="hbt-s">s</span></div>
 
     <!-- Left content -->
-    <div class="container hero-layout">
+    <div class="hero-layout">
       <div class="hero-left">
         <div class="hero-agency-label">DIGITAL GROWTH AGENCY</div>
         <p class="hero-desc">
           We turn content, campaigns, creators, and data into growth systems for modern brands.
         </p>
         <div class="hero-cta-row">
-          <a href="#contact" class="btn btn-hero-primary">Build My Brand →</a>
-          <a href="#services" class="btn btn-hero-ghost">View Services</a>
+          <a href="#contact" class="btn btn-hero-primary">Build My Brand &rarr;</a>
+          <a href="#services" class="btn-hero-underline">View Services</a>
         </div>
       </div>
 
       <!-- Bottom right counter -->
       <div class="hero-counter">
-        <span class="hero-counter-num">01</span>
-        <span class="hero-counter-sep">/</span>
-        <span class="hero-counter-total">06</span>
+        <div class="hero-counter-top">
+          <span class="hero-counter-num"><span class="yellow-text">01</span></span>
+          <span class="hero-counter-sep">/</span>
+          <span class="hero-counter-total">06</span>
+        </div>
         <div class="hero-counter-label">BRAND GROWTH SYSTEMS —<br>SOCIAL · ADS · CREATORS · AUTOMATION</div>
       </div>
     </div>
@@ -1116,7 +1116,7 @@
     </div>
   </footer>
 
-  <script src="main.js?v=6"></script>
+  <script src="main.js?v=7"></script>
 </body>
 
 </html>
