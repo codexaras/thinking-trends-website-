@@ -405,7 +405,16 @@ section {
   gap: 24px;
 }
 
+.nav-links {
+  order: 1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  list-style: none;
+}
+
 .nav-logo {
+  order: 2;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -414,21 +423,14 @@ section {
 }
 
 .nav-logo img {
-  height: 50px;
+  height: 62px;
   width: auto;
-  filter: drop-shadow(0 0 6px rgba(255, 210, 0, 0.2));
+  object-fit: contain;
+  filter: drop-shadow(0 0 4px rgba(255,210,0,0.2));
 }
 
 .nav-logo-text {
-  font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: 1.2rem;
-  color: var(--white);
-  line-height: 1.1;
-}
-
-.nav-logo-text span {
-  color: var(--yellow);
+  display: none; /* Keep it hidden as per original clean design */
 }
 
 .nav-links {
@@ -436,6 +438,7 @@ section {
   align-items: center;
   gap: 6px;
   list-style: none;
+  margin-right: auto; /* Push everything else to the right */
 }
 
 .nav-links a {
@@ -471,6 +474,7 @@ section {
 }
 
 .nav-cta-wrap {
+  order: 3;
   display: flex;
   gap: 12px;
   align-items: center;
@@ -563,7 +567,7 @@ section {
 
 /* ─── HERO SECTION — Dark Big Type Design ───────────────────── */
 #hero {
-  min-height: 100vh;
+  height: 100vh;
   background: var(--black);
   position: relative;
   overflow: hidden;
@@ -571,35 +575,36 @@ section {
   flex-direction: column;
 }
 
-/* Giant background "thinking trends" text */
+/* Giant heading text — centered in hero */
 .hero-big-text {
   position: absolute;
-  bottom: 15%;
+  top: 48%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   font-family: var(--font-heading);
   font-weight: 900;
-  font-size: clamp(5rem, 13vw, 14rem);
-  line-height: 1;
-  letter-spacing: -0.03em;
+  font-size: clamp(3.5rem, 11vw, 13rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
   color: var(--white);
   white-space: nowrap;
   z-index: 1;
   pointer-events: none;
+  user-select: none;
   animation: fadeInUp 1s 0.3s ease both;
 }
 
-/* Hero layout — left column + counter */
+/* Hero layout — left content bottom-left, counter bottom-right */
 .hero-layout {
   position: relative;
   z-index: 5;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  padding-top: 140px;
+  padding-top: 80px;
   padding-bottom: 80px;
-  min-height: calc(100vh - 90px);
   flex: 1;
+  min-height: 0;
 }
 
 .hero-left {
@@ -737,15 +742,15 @@ section {
   50%      { transform: translateY(-12px); }
 }
 
-/* 01 — Phone / Viral Reel (top-center) */
+/* 01 — Phone / Viral Reel — top center */
 .hf-phone {
-  top: 6%;
+  top: 14%;
   left: 50%;
   transform: translateX(-50%);
-  width: 160px;
-  padding: 10px;
+  width: 150px;
+  padding: 8px;
   animation-delay: 0s;
-  border-radius: 22px;
+  border-radius: 20px;
 }
 .hf-phone-screen {
   background: #111;
@@ -793,11 +798,11 @@ section {
   color: #FF6B35;
 }
 
-/* 02 — Dashboard (top-right) */
+/* 02 — Dashboard — top right */
 .hf-dashboard {
-  top: 8%;
-  right: 5%;
-  width: 200px;
+  top: 14%;
+  right: 3%;
+  width: 210px;
   padding: 14px;
   animation-delay: 1s;
 }
@@ -828,19 +833,22 @@ section {
 .hf-metric-delta.up { color: #4ade80; }
 .hf-dash-chart svg { width: 100%; height: 40px; }
 
-/* 03 — Strategy Brain (center, behind big text) */
+/* 03 — Strategy Brain — center slightly above middle */
 .hf-brain {
-  bottom: 22%;
+  top: 55%;
   left: 50%;
   transform: translateX(-50%);
-  width: 120px;
-  height: 120px;
+  width: 110px;
+  height: 110px;
   display: flex;
   align-items: center;
   justify-content: center;
   animation-delay: 0.5s;
   border-radius: 50%;
   overflow: visible;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 .hf-brain-inner {
   position: relative;
@@ -872,11 +880,11 @@ section {
 }
 .hf-lightning-2 { top: auto; bottom: -5px; left: -5px; animation-delay: 1s; }
 
-/* 04 — Creator Collab (right-center) */
+/* 04 — Creator Collab — right center */
 .hf-creator {
-  top: 45%;
-  right: 4%;
-  width: 190px;
+  top: 42%;
+  right: 2%;
+  width: 195px;
   padding: 12px;
   animation-delay: 1.5s;
 }
@@ -926,10 +934,10 @@ section {
 }
 .hf-ugc-badge span { font-weight: 500; font-size: 0.6rem; }
 
-/* 05 — Automation Chat (left, lower) */
+/* 05 — Automation Chat — left side */
 .hf-chat {
-  bottom: 20%;
-  left: 3%;
+  top: 42%;
+  left: 2%;
   width: 185px;
   padding: 12px;
   animation-delay: 2s;
@@ -975,13 +983,14 @@ section {
   text-align: center;
 }
 
-/* Yellow ring decoration */
+/* Yellow ring decoration — far right */
 .hf-yellow-ring {
   position: absolute;
-  bottom: 15%;
-  right: 8%;
-  width: 120px;
-  height: 120px;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   border: 3px solid var(--yellow);
   box-shadow: 0 0 40px rgba(255,210,0,0.4), inset 0 0 40px rgba(255,210,0,0.1);
