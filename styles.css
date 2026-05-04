@@ -602,12 +602,14 @@ section {
   position: relative;
   display: inline-block;
 }
-.hbt-t::after {
+
+/* Yellow Swoosh under the "t" */
+.hero-big-text::after {
   content: '';
   position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 110%;
+  bottom: 8%;
+  left: -15px;
+  width: 12%;
   height: 16px;
   background: var(--yellow);
   border-radius: 10px;
@@ -779,29 +781,84 @@ section {
   animation: cardFloat 6s ease-in-out infinite;
   box-shadow: 0 20px 60px rgba(0,0,0,0.5);
 }
-.hf-card::before {
-  content: attr(data-label) '  ' attr(data-title);
+.hf-label {
   position: absolute;
-  top: -28px;
-  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  white-space: nowrap;
+  pointer-events: none;
+  transform: rotate(calc(var(--rot, 0deg) * -1));
+}
+.hf-label-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.2;
+}
+.hf-label-row {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+.hf-label-num {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--black);
+  background: var(--yellow);
+  padding: 2px 6px;
+  border-radius: 50px;
+}
+.hf-label-title {
   font-size: 0.6rem;
   letter-spacing: 2px;
   font-weight: 700;
   color: var(--gray);
-  white-space: nowrap;
+  text-transform: uppercase;
+}
+.hf-arrow {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  overflow: visible;
+}
+
+/* Specific label positioning */
+.hf-label-right {
+  top: 10px;
+  left: calc(100% + 20px);
+}
+.hf-label-left {
+  top: 10px;
+  right: calc(100% + 20px);
+  flex-direction: row-reverse;
+}
+.hf-label-top-left {
+  bottom: calc(100% + 10px);
+  right: 20px;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.hf-label-bottom-left {
+  top: calc(100% + 10px);
+  right: 40px;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 @keyframes cardFloat {
-  0%,100% { transform: translateY(0); }
-  50%      { transform: translateY(-12px); }
+  0%,100% { transform: translateY(0) rotate(var(--rot, 0deg)); }
+  50%      { transform: translateY(-12px) rotate(var(--rot, 0deg)); }
 }
 
 /* 01 — Phone / Viral Reel — top center */
 .hf-phone {
+  --rot: -10deg;
   top: 10vh;
   right: 15vw;
   left: auto;
-  transform: rotate(-10deg);
+  transform: rotate(var(--rot));
   width: 240px;
   padding: 8px;
   animation-delay: 0s;
@@ -855,10 +912,11 @@ section {
 
 /* 02 — Dashboard — top right */
 .hf-dashboard {
+  --rot: 8deg;
   top: 12vh;
   left: 36vw;
   right: auto;
-  transform: rotate(8deg);
+  transform: rotate(var(--rot));
   width: 280px;
   padding: 14px;
   animation-delay: 1s;
@@ -892,10 +950,11 @@ section {
 
 /* 03 — Strategy Brain — center slightly above middle */
 .hf-brain {
+  --rot: 0deg;
   top: auto;
   bottom: 8vh;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) rotate(var(--rot));
   width: 160px;
   height: 160px;
   display: flex;
@@ -940,10 +999,11 @@ section {
 
 /* 04 — Creator Collab — right center */
 .hf-creator {
+  --rot: -12deg;
   top: auto;
   bottom: 15vh;
   right: 15vw;
-  transform: rotate(-12deg);
+  transform: rotate(var(--rot));
   width: 260px;
   padding: 12px;
   animation-delay: 1.5s;
@@ -996,10 +1056,11 @@ section {
 
 /* 05 — Automation Chat — left side */
 .hf-chat {
+  --rot: 12deg;
   top: auto;
-  bottom: 15vh;
-  left: 28vw;
-  transform: rotate(12deg);
+  bottom: 10vh;
+  left: 35vw;
+  transform: rotate(var(--rot));
   width: 250px;
   padding: 12px;
   animation-delay: 2s;
